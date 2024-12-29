@@ -1,10 +1,11 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { ThemedText } from '@/components/ThemedText';
 import { Colors } from '@/constants/Colors';
 import { Text } from 'react-native-paper';
 import { useColorScheme } from '@/hooks/useColorScheme.web';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 const CourseContentList = () => {
   const colorScheme = useColorScheme();
@@ -38,7 +39,10 @@ const CourseContentList = () => {
     <View style={styles.container}>
       <ThemedText type="defaultSemiBold">Course Content</ThemedText>
       {/* ---------- course content list ---------- */}
-      <View style={styles.card}>
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() => router.push('/courseDescription')}
+      >
         <View style={styles.cardLeft}>
           <Text
             variant="headlineMedium"
@@ -58,8 +62,8 @@ const CourseContentList = () => {
           color={Colors.appColors.primary}
           size={24}
         />
-      </View>
-      <View style={styles.card}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
         <View style={styles.cardLeft}>
           <Text
             variant="headlineMedium"
@@ -79,8 +83,8 @@ const CourseContentList = () => {
           color={Colors.appColors.primary}
           size={24}
         />
-      </View>
-      <View style={styles.card}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
         <View style={styles.cardLeft}>
           <Text
             variant="headlineMedium"
@@ -100,8 +104,8 @@ const CourseContentList = () => {
           color={Colors.appColors.primary}
           size={24}
         />
-      </View>
-      <View style={styles.card}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
         <View style={styles.cardLeft}>
           <Text
             variant="headlineMedium"
@@ -121,8 +125,8 @@ const CourseContentList = () => {
           color={Colors.appColors.primary}
           size={24}
         />
-      </View>
-      <View style={styles.card}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
         <View style={styles.cardLeft}>
           <Text
             variant="headlineMedium"
@@ -142,8 +146,8 @@ const CourseContentList = () => {
           color={Colors.appColors.primary}
           size={24}
         />
-      </View>
-      <View style={styles.card}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.card}>
         <View style={styles.cardLeft}>
           <Text
             variant="headlineMedium"
@@ -163,7 +167,7 @@ const CourseContentList = () => {
           color={Colors.appColors.primary}
           size={24}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

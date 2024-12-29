@@ -41,6 +41,10 @@ const AppRoot = () => {
             name="courseContents"
             options={{ headerShown: false }}
           />
+          <Stack.Screen
+            name="courseDescription"
+            options={{ headerShown: false }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
