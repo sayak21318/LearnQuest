@@ -1,4 +1,7 @@
 import BackHeader from '@/components/Common/Header/BackHeader';
+import CodeSnippets from '@/components/CourseDescriptionComponents/CodeSnippets/CodeSnippets';
+import CourseDetails from '@/components/CourseDescriptionComponents/CourseDetails/CourseDetails';
+import NextButton from '@/components/CourseDescriptionComponents/NextButton/NextButton';
 import Steps from '@/components/CourseDescriptionComponents/Steps/Steps';
 import { ThemedView } from '@/components/ThemedView';
 import React from 'react';
@@ -14,6 +17,15 @@ const CourseDescription = () => {
 
         {/* ----------- steps ------------- */}
         <Steps />
+
+        {/* ----------- course details ------------ */}
+        <CourseDetails />
+
+        {/* ----------- code snippets ------------ */}
+        <CodeSnippets />
+
+        {/* ------------ next btn ----------- */}
+        <NextButton />
       </ThemedView>
     </SafeAreaView>
   );
