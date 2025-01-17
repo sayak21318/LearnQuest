@@ -7,11 +7,12 @@ import { useFonts } from 'expo-font';
 import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useUser } from '@clerk/clerk-expo';
+import { tokenCache } from '@/storage/cache';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -20,7 +21,7 @@ const AppRoot = () => {
   const colorScheme = useColorScheme();
 
   const { user, isLoaded } = useUser();
-
+  const [token, setToken] = useState<string | null>(null);
   const [fontsLoaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -31,6 +32,20 @@ const AppRoot = () => {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
+  // Fetch token when the component mounts
+  useEffect(() => {
+    const fetchToken = async () => {
+      if (tokenCache) {
+        const fetchedToken = await tokenCache.getToken('token'); // Replace with your key
+        setToken(fetchedToken);
+        console.log('Fetched Token:', fetchedToken);
+      }
+    };
+    fetchToken();
+  }, []);
+
+  console.log('token', token);
 
   // Handle navigation AFTER everything is loaded
   useEffect(() => {
@@ -64,7 +79,6 @@ const AppRoot = () => {
           />
           <Stack.Screen name="+not-found" />
         </Stack>
-        <StatusBar style="auto" />
       </ThemeProvider>
     </SafeAreaProvider>
   );

@@ -2,7 +2,9 @@ import { PaperProvider } from 'react-native-paper';
 import { ClerkProvider, ClerkLoaded } from '@clerk/clerk-expo';
 import AppRoot from './AppRoot';
 import GlobalContext from '@/context/GlobalContext';
-import { tokenCache } from '@/cache';
+import { tokenCache } from '@/storage/cache';
+import { StatusBar } from 'expo-status-bar';
+import SnackBar from '@/components/Common/SnackBar/SnackBar';
 
 export default function RootLayout() {
   const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
@@ -19,6 +21,8 @@ export default function RootLayout() {
         <GlobalContext>
           <ClerkLoaded>
             <AppRoot />
+            <StatusBar style="auto" />
+            <SnackBar />
           </ClerkLoaded>
         </GlobalContext>
       </PaperProvider>

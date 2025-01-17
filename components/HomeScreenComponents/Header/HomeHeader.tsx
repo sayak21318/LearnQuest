@@ -7,7 +7,7 @@ import { useUser } from '@clerk/clerk-expo';
 const HomeHeader = () => {
   const { user } = useUser();
 
-  console.log('user', user);
+  // console.log('user', user);
 
   return (
     <View style={styles.container}>

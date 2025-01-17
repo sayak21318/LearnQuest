@@ -31,5 +31,6 @@ export const Colors = {
     lightGray: '#F0F0F0',
     cahrcoal: '#303030',
     deepEspresso: '#2A2424',
+    stormGray: '#6A7687',
   },
 };

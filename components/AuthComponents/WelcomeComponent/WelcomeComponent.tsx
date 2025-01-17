@@ -5,18 +5,19 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import { Colors } from '@/constants/Colors';
 import { ThemedText } from '@/components/ThemedText';
 import { AntDesign } from '@expo/vector-icons';
-import { router } from 'expo-router';
 import { useOAuth } from '@clerk/clerk-expo';
 import * as Linking from 'expo-linking';
 
 const WelcomeComponent = () => {
+  // color scheme hook
   const colorScheme = useColorScheme();
 
+  // styles
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -50,17 +51,20 @@ const WelcomeComponent = () => {
     },
   });
 
+  // calling useWarmUpBrowser to warm up the android browser
   useWarmUpBrowser();
 
+  // OAuth Flow with Google
   const { startOAuthFlow } = useOAuth({ strategy: 'oauth_google' });
 
-  const onPress = React.useCallback(async () => {
+  // function to handle the button press
+  const onPress = useCallback(async () => {
     try {
       const { createdSessionId, signIn, signUp, setActive } =
         await startOAuthFlow({
           redirectUrl: Linking.createURL('/homeScreen', { scheme: 'myapp' }),
         });
-
+      console.log('createdSessionId', createdSessionId);
       // If sign in was successful, set the active session
       if (createdSessionId) {
         setActive!({ session: createdSessionId });
@@ -75,6 +79,7 @@ const WelcomeComponent = () => {
     }
   }, []);
 
+  // render the component
   return (
     <View style={styles.container}>
       <View style={styles.topContainer}>
@@ -86,11 +91,7 @@ const WelcomeComponent = () => {
         <ThemedText type="subtitle" style={{ textAlign: 'center' }}>
           Login/Signup
         </ThemedText>
-        <TouchableOpacity
-          style={styles.authBtn}
-          // onPress={() => router.push('/homeScreen')}
-          onPress={onPress}
-        >
+        <TouchableOpacity style={styles.authBtn} onPress={onPress}>
           <AntDesign name="google" size={24} color={Colors.light.background} />
           <ThemedText
             type="subtitle"
@@ -105,6 +106,7 @@ const WelcomeComponent = () => {
 };
 export default WelcomeComponent;
 
+// function to warm up the android browser
 export const useWarmUpBrowser = () => {
   useEffect(() => {
     // Warm up the android browser to improve UX
@@ -116,4 +118,5 @@ export const useWarmUpBrowser = () => {
   }, []);
 };
 
+// complete the auth session
 WebBrowser.maybeCompleteAuthSession();
