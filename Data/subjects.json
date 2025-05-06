@@ -1,0 +1,30 @@
+{
+  "semesters": [
+    {
+      "id": 1,
+      "name": "Semester 1",
+      "subjects": [
+        {
+          "id": 1,
+          "name": "Mathematics",
+          "image": "https://t3.ftcdn.net/jpg/05/51/43/56/360_F_551435602_v0rxhHEIgbQNWozIjcgJOR2Nmp1SINMV.jpg"
+        },
+        {
+          "id": 2,
+          "name": "Physics",
+          "image": "https://t4.ftcdn.net/jpg/02/82/19/53/360_F_282195356_Qnba54RyXAWkuEU2BYgIrBNTWIO3pzL5.jpg"
+        },
+        {
+          "id": 3,
+          "name": "Chemistry",
+          "image": "https://thumbs.dreamstime.com/b/chemical-logo-science-research-vector-illustration-125997605.jpg"
+        },
+        {
+          "id": 4,
+          "name": "Computer Science",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg7aK40Gs_wApsLRUhfl1Ekhgzr__oAJcoig&s"
+        }
+      ]
+    }
+  ]
+}
