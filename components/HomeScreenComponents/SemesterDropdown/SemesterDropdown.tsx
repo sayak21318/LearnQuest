@@ -1,6 +1,4 @@
 // @ts-nocheck
-
-// @ts-nocheck
 import {
   Dimensions,
   FlatList,

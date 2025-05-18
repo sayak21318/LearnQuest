@@ -10,6 +10,7 @@ import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { Colors } from '@/constants/Colors';
 import subjectsData from '@/Data/subjects.json';
+import { router } from 'expo-router';
 
 type SubjectListProps = {
   selectedSemester: string;
@@ -41,7 +42,10 @@ const SubjectList: React.FC<SubjectListProps> = ({ selectedSemester }) => {
         pressed && { transform: [{ scale: 0.98 }], opacity: 0.9 },
       ]}
       onPress={() => {
-        // Navigation to subject details screen will be implemented later
+        router.push({
+          pathname: '/subjectDetails',
+          params: { subjectId: item.id },
+        });
       }}
     >
       <Image
@@ -53,34 +57,6 @@ const SubjectList: React.FC<SubjectListProps> = ({ selectedSemester }) => {
     </Pressable>
   );
 
-  if (subjects.length === 0) {
-    return (
-      <ThemedView style={styles.emptyContainer}>
-        <Image
-          source={{
-            uri: isDarkMode
-              ? 'https://example.com/images/no-subjects-dark.png'
-              : 'https://dmf76jm51vpov.cloudfront.net/www2/images/main/2020/webpage/Course-not-Found.jpg',
-          }}
-          style={styles.emptyImage}
-          resizeMode="contain"
-        />
-        <ThemedText
-          style={[
-            styles.emptyText,
-            {
-              color: isDarkMode
-                ? Colors.appColors.darkText
-                : Colors.appColors.lightText,
-            },
-          ]}
-        >
-          No courses found
-        </ThemedText>
-      </ThemedView>
-    );
-  }
-
   return (
     <ThemedView style={styles.container}>
       <FlatList
@@ -90,6 +66,22 @@ const SubjectList: React.FC<SubjectListProps> = ({ selectedSemester }) => {
         numColumns={2}
         columnWrapperStyle={styles.columnWrapper}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={
+          <ThemedView style={styles.emptyContainer}>
+            <ThemedText
+              style={[
+                styles.emptyText,
+                {
+                  color: isDarkMode
+                    ? Colors.appColors.darkText
+                    : Colors.appColors.lightText,
+                },
+              ]}
+            >
+              No Subjects found
+            </ThemedText>
+          </ThemedView>
+        }
       />
     </ThemedView>
   );
@@ -131,11 +123,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 16,
-  },
-  emptyImage: {
-    width: 200,
-    height: 200,
-    marginBottom: 16,
   },
   emptyText: {
     fontSize: 18,

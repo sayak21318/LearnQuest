@@ -7,13 +7,11 @@ import {
 import { useFonts } from 'expo-font';
 import { router, Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useUser } from '@clerk/clerk-expo';
-import { tokenCache } from '@/storage/cache';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -34,31 +32,6 @@ const AppRoot = () => {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
-
-  // Fetch token when the component mounts
-  // useEffect(() => {
-  //   const fetchToken = async () => {
-  //     if (tokenCache) {
-  //       const fetchedToken = await tokenCache.getToken('token'); // Replace with your key
-  //       setToken(fetchedToken);
-  //       console.log('Fetched Token:', fetchedToken);
-  //     }
-  //   };
-  //   fetchToken();
-  // }, []);
-
-  // useEffect(() => {
-  //   const fetchToken = async () => {
-  //     try {
-  //       const fetchedToken = await AsyncStorage.getItem('token');
-  //       console.log('Fetched Token:', fetchedToken);
-  //       setToken(fetchedToken);
-  //     } catch (error) {
-  //       console.error('Error fetching token from AsyncStorage:', error);
-  //     }
-  //   };
-  //   fetchToken();
-  // }, []);
 
   const fetchTokens = async () => {
     try {
@@ -101,11 +74,7 @@ const AppRoot = () => {
           <Stack.Screen name="index" options={{ headerShown: false }} />
           <Stack.Screen name="homeScreen" options={{ headerShown: false }} />
           <Stack.Screen
-            name="courseContents"
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="courseDescription"
+            name="subjectDetails"
             options={{ headerShown: false }}
           />
           <Stack.Screen name="+not-found" />

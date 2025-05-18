@@ -1,0 +1,58 @@
+{
+  "subjects": [
+    {
+      "id": 1,
+      "name": "Mathematics",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Introduction to Algebra",
+          "content": "# Introduction to Algebra\n\nAlgebra is a branch of mathematics that uses symbols to represent numbers and operations.\n\n## What is Algebra?\n\nAlgebra involves solving equations and manipulating expressions. For example, a **linear equation** might look like this:\n\n**Math Example**: Solve for *x*: 2x + 3 = 7\n\nSolution:\n- Subtract 3: 2x = 4\n- Divide by 2: x = 2\n\n## Key Concepts\n\n- **Variables**: Symbols like *x* or *y* represent unknown values.\n- **Constants**: Fixed values, e.g., 3 or 7.\n\n![Algebra Image](https://t3.ftcdn.net/jpg/05/51/43/56/360_F_551435602_v0rxhHEIgbQNWozIjcgJOR2Nmp1SINMV.jpg)\n\nFor more details, see [Algebra Basics](https://en.wikipedia.org/wiki/Algebra).[^1]\n\n[^1]: Algebra has roots in ancient mathematics, notably from the work of Persian mathematician Al-Khwārizmī."
+        },
+        {
+          "id": 2,
+          "title": "Quadratic Equations",
+          "content": "# Quadratic Equations\n\nQuadratic equations are polynomials of degree 2.\n\n## General Form\n\nA quadratic equation is written as **ax² + bx + c = 0**.\n\n**Math Example**: Solve x² - 5x + 6 = 0\n\nSolution:\n1. Factorize: (x - 2)(x - 3) = 0\n2. Set each factor to zero: x = 2 or x = 3\n\n## Applications\n\n- Used in physics for projectile motion.\n- Common in optimization problems.\n\n![Quadratic Graph](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Quadratic_function_graph.svg/320px-Quadratic_function_graph.svg.png)"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Physics",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Newton's Laws",
+          "content": "# Newton's Laws of Motion\n\nNewton's laws form the foundation of classical mechanics.\n\n## First Law\n\nAn object remains at rest or in uniform motion unless acted upon by a *net force*.\n\n**Math Example**: Calculate force: **F = ma**\n\nExample:\n- Mass (*m*) = 2 kg\n- Acceleration (*a*) = 3 m/s²\n- Force (*F*) = 2 * 3 = 6 N\n\n## Applications\n\n- Motion of planets.\n- Vehicle dynamics.\n\n![Newton's Laws](https://t4.ftcdn.net/jpg/02/82/19/53/360_F_282195356_Qnba54RyXAWkuEU2BYgIrBNTWIO3pzL5.jpg)\n\nSee [Newton's Laws](https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion) for more.[^1]\n\n[^1]: Formulated by Sir Isaac Newton in the 17th century."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Chemistry",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Chemical Bonding",
+          "content": "# Chemical Bonding\n\nChemical bonds are forces that hold atoms together.\n\n## Types of Bonds\n\n- **Covalent Bonds**: Electrons are shared, e.g., in water (H₂O).\n- **Ionic Bonds**: Electrons are transferred, e.g., in NaCl.\n\n## Example\n\nWater molecules form *covalent bonds* between hydrogen and oxygen.\n\n![Water Molecule](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Water_molecule_3D.svg/320px-Water_molecule_3D.svg.png)\n\nLearn more at [Chemical Bonding](https://en.wikipedia.org/wiki/Chemical_bond)."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Computer Science",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Python Basics",
+          "content": "# Python Basics\n\nPython is a versatile, high-level programming language.\n\n## Hello World\n\nA simple Python program:\n\n**Code Example**:\n\n```python\nprint('Hello, World!')\n```\n\nOutput: *Hello, World!*\n\n## Features\n\n- Easy to read syntax.\n- Widely used in AI and web development.\n\n![Python Logo](https://www.python.org/static/community_logos/python-logo.png)\n\nSee [Python Docs](https://www.python.org/doc/) for more.[^1]\n\n[^1]: Python was created by Guido van Rossum in 1991."
+        },
+        {
+          "id": 2,
+          "title": "JavaScript Basics",
+          "content": "# JavaScript Basics\n\nJavaScript is essential for web development.\n\n## Functions\n\nDefine a function to greet a user:\n\n**Code Example**:\n\n```javascript\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\nconsole.log(greet('User'));\n```\n\nOutput: *Hello, User!*\n\n## Uses\n\n- Interactive web pages.\n- Server-side development with Node.js.\n\n![JavaScript Logo](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)"
+        }
+      ]
+    }
+  ]
+}
