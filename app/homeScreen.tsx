@@ -4,7 +4,6 @@ import React, { useCallback, useContext, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedView } from '@/components/ThemedView';
 import HomeHeader from '@/components/HomeScreenComponents/Header/HomeHeader';
-
 import { useFocusEffect } from 'expo-router';
 import { Colors } from '@/constants/Colors';
 import { GlobalProvider } from '@/context/GlobalContext';

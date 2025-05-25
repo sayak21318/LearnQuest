@@ -51,7 +51,7 @@ const SubjectList: React.FC<SubjectListProps> = ({ selectedSemester }) => {
       <Image
         source={{ uri: item.image }}
         style={styles.subjectImage}
-        resizeMode="cover"
+        resizeMode="contain"
       />
       <ThemedText style={styles.subjectName}>{item.name}</ThemedText>
     </Pressable>

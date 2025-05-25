@@ -53,6 +53,70 @@
           "content": "# JavaScript Basics\n\nJavaScript is essential for web development.\n\n## Functions\n\nDefine a function to greet a user:\n\n**Code Example**:\n\n```javascript\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\nconsole.log(greet('User'));\n```\n\nOutput: *Hello, User!*\n\n## Uses\n\n- Interactive web pages.\n- Server-side development with Node.js.\n\n![JavaScript Logo](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)"
         }
       ]
+    },
+    {
+      "id": 5,
+      "name": "Advanced Mathematics",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Calculus I",
+          "content": "# Calculus I\n\nCalculus is the study of change, with two main branches: differential calculus and integral calculus.\n\n## Limits\n\nThe concept of a limit underlies calculus. It describes the value that a function approaches as the input approaches some value.\n\n**Math Example**: Find the limit of $f(x) = \frac{x^2 - 1}{x - 1}$ as $x$ approaches 1.\n\nSolution:\n\n$\\lim_{x \\to 1} \frac{x^2 - 1}{x - 1} = \\lim_{x \\to 1} \frac{(x - 1)(x + 1)}{x - 1} = \\lim_{x \\to 1} (x + 1) = 1 + 1 = 2$\n\n## Derivatives\n\nThe derivative measures the instantaneous rate of change of a function.\n\n**Math Example**: Find the derivative of $f(x) = x^3$.\n\nSolution:\n\n$\\frac{d}{dx}(x^3) = 3x^2$\n\n![Calculus Graph](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Integral_as_area.svg/320px-Integral_as_area.svg.png)\n\nExplore more at [Calculus](https://en.wikipedia.org/wiki/Calculus)."
+        },
+        {
+          "id": 2,
+          "title": "Linear Algebra",
+          "content": "# Linear Algebra\n\nLinear algebra deals with vector spaces and linear transformations.\n\n## Vectors\n\nA vector is an object that has both magnitude and direction.\n\n**Math Example**: A vector $\\mathbf{v} = \begin{pmatrix} 2 \\ 3 end{pmatrix}$ in a 2D plane.\n\n## Matrices\n\nA matrix is a rectangular array of numbers arranged in rows and columns.\n\n**Math Example**: A 2x2 matrix $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 end{pmatrix}$.\n\n![Vectors](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Vector_example.svg/320px-Vector_example.svg.png)\n\nLearn more at [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra)."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Applied Physics",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Electromagnetism",
+          "content": "# Electromagnetism\n\nElectromagnetism is the interaction of electric and magnetic fields.\n\n## Electric Fields\n\nAn electric field is a region around an electric charge that exerts a force on other charged objects.\n\n**Math Example**: Electric force $\\mathbf{F} = q\\mathbf{E}$, where $q$ is the charge and $mathbf{E}$ is the electric field.\n\n## Magnetic Fields\n\nA magnetic field is a region around a magnet or a moving electric charge that exerts a magnetic force.\n\n**Math Example**: Magnetic force on a moving charge $\\mathbf{F} = q(\\mathbf{v} \times \\mathbf{B})$, where $mathbf{v}$ is the velocity and $mathbf{B}$ is the magnetic field.\n\n![Electromagnetism](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Electromagnetism_schematic.svg/320px-Electromagnetism_schematic.svg.png)\n\nExplore more at [Electromagnetism](https://en.wikipedia.org/wiki/Electromagnetism)."
+        },
+        {
+          "id": 2,
+          "title": "Thermodynamics",
+          "content": "# Thermodynamics\n\nThermodynamics is the study of heat and its relation to other forms of energy and work.\n\n## Laws of Thermodynamics\n\n- **First Law**: Energy cannot be created or destroyed, only transferred or changed from one form to another.\n- **Second Law**: The total entropy of an isolated system can only increase over time.\n\n**Math Example**: First Law: $\\Delta U = Q - W$, where $\\Delta U$ is the change in internal energy, $Q$ is the heat added, and $W$ is the work done by the system.\n\n![Thermodynamics](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Thermodynamics_schematic_diagram.svg/320px-Thermodynamics_schematic_diagram.svg.png)\n\nLearn more at [Thermodynamics](https://en.wikipedia.org/wiki/Thermodynamics)."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Organic Chemistry",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Alkanes and Alkenes",
+          "content": "# Alkanes and Alkenes\n\nOrganic chemistry is the study of carbon-containing compounds.\n\n## Alkanes\n\nAlkanes are saturated hydrocarbons with single bonds between carbon atoms. Their general formula is $C_nH_{2n+2}$.\n\n**Chemical Example**: Methane (CH₄) is the simplest alkane.\n\n## Alkenes\n\nAlkenes are unsaturated hydrocarbons containing at least one carbon-carbon double bond. Their general formula is $C_nH_{2n}$.\n\n**Chemical Example**: Ethene (C₂H₄) is the simplest alkene.\n\n![Alkane and Alkene Structures](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Alkane-Alkenes.svg/320px-Alkane-Alkenes.svg.png)\n\nExplore more at [Alkanes](https://en.wikipedia.org/wiki/Alkane) and [Alkenes](https://en.wikipedia.org/wiki/Alkene)."
+        },
+        {
+          "id": 2,
+          "title": "Functional Groups",
+          "content": "# Functional Groups\n\nA functional group is a specific group of atoms within molecules that are responsible for the characteristic chemical reactions of those molecules.\n\n## Common Functional Groups\n\n- **Alcohols**: Contain an -OH group.\n- **Carboxylic Acids**: Contain a -COOH group.\n- **Amines**: Contain an -NH₂ group.\n\n**Chemical Example**: Ethanol (CH₃CH₂OH) contains an alcohol functional group.\n\n![Functional Groups](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Functional_groups.svg/500px-Functional_groups.svg.png)\n\nLearn more at [Functional Group](https://en.wikipedia.org/wiki/Functional_group)."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Data Structures and Algorithms",
+      "chapters": [
+        {
+          "id": 1,
+          "title": "Arrays and Linked Lists",
+          "content": "# Arrays and Linked Lists\n\nData structures are ways to organize and store data efficiently.\n\n## Arrays\n\nAn array is a collection of items stored at contiguous memory locations. Each item can be accessed using an index.\n\n**Code Example (Python)**:\n\n```python\nmy_array = [1, 2, 3, 4, 5]\nprint(my_array[0]) # Output: 1\n```\n\n## Linked Lists\n\nA linked list is a sequence of elements where each element points to the next one. They do not need to be stored contiguously in memory.\n\n![Array vs Linked List](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Array_vs_Linked_List.svg/450px-Array_vs_Linked_List.svg.png)\n\nExplore more at [Array Data Structure](https://en.wikipedia.org/wiki/Array_data_structure) and [Linked List](https://en.wikipedia.org/wiki/Linked_list)."
+        },
+        {
+          "id": 2,
+          "title": "Sorting Algorithms",
+          "content": "# Sorting Algorithms\n\nSorting algorithms are used to arrange elements in a specific order.\n\n## Bubble Sort\n\nA simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.\n\n**Algorithm Steps**:\n\n1. Start at the beginning of the list.\n2. Compare the first two elements. If the first is greater than the second, swap them.\n3. Move to the next pair of elements and repeat step 2.\n4. Continue until the end of the list. The last element will be in its correct sorted position.\n5. Repeat the process for the remaining unsorted elements until the entire list is sorted.\n\n**Code Example (Python)**:\n\n```python\ndef bubble_sort(list_):\n  n = len(list_)\n  for i in range(n-1):\n    for j in range(0, n-i-1):\n      if list_[j] > list_[j+1]:\n        list_[j], list_[j+1] = list_[j+1], list_[j]\n  return list_\n\nmy_list = [5, 1, 4, 2, 8]\nsorted_list = bubble_sort(my_list)\nprint(sorted_list) # Output: [1, 2, 4, 5, 8]\n```\n\n![Bubble Sort Animation](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bubble-sort-example-300px.gif/220px-Bubble-sort-example-300px.gif)\n\nLearn more at [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)."
+        }
+      ]
     }
   ]
 }

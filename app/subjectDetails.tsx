@@ -295,6 +295,7 @@ const SubjectDetails = () => {
         </View>
       );
     },
+
     code_block: (node, children, parent, styles) => {
       const codeContent =
         node.content ||

@@ -25,6 +25,32 @@
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg7aK40Gs_wApsLRUhfl1Ekhgzr__oAJcoig&s"
         }
       ]
+    },
+    {
+      "id": 2,
+      "name": "Semester 2",
+      "subjects": [
+        {
+          "id": 5,
+          "name": "Advanced Mathematics",
+          "image": "https://img.freepik.com/free-vector/math-background_23-2148144700.jpg?semt=ais_hybrid&w=740"
+        },
+        {
+          "id": 6,
+          "name": "Applied Physics",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhx8Sg0MyQ8SCMx2v1uEXHx_seA1w4RkyM1bBOpe6mCksRVNi3av0keLJW9DHqoVwOqOs&usqp=CAU"
+        },
+        {
+          "id": 7,
+          "name": "Organic Chemistry",
+          "image": "https://media.istockphoto.com/id/1422722148/vector/organic-chemistry-vector-colored-outline-round-illustration.jpg?s=612x612&w=0&k=20&c=zFgEHPXK2B1UxzJGsWVjQ1Z5W2KOsv5jI8AtbiILAc8="
+        },
+        {
+          "id": 8,
+          "name": "Data Structures and Algorithms",
+          "image": "https://cdn.slidesharecdn.com/ss_thumbnails/introtodsaa-230204043459-53980947-thumbnail.jpg?width=560&fit=bounds"
+        }
+      ]
     }
   ]
 }
