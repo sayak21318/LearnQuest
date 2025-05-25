@@ -259,7 +259,11 @@ const SubjectDetails = () => {
 
   const rules = {
     fence: (node, children, parent, styles) => {
-      const codeContent = node.content || 'No content';
+      const codeContent = node.content?.trim() || '';
+      if (!codeContent) {
+        console.log('Skipping empty fence block:', node); // Debug log
+        return null;
+      }
       if (node.lang === 'math') {
         return (
           <ThemedView
@@ -273,7 +277,7 @@ const SubjectDetails = () => {
               lightColor={Colors.appColors.lightText}
               darkColor={Colors.appColors.darkText}
             >
-              {codeContent.trim()}
+              {codeContent}
             </ThemedText>
           </ThemedView>
         );
@@ -295,12 +299,15 @@ const SubjectDetails = () => {
         </View>
       );
     },
-
     code_block: (node, children, parent, styles) => {
       const codeContent =
-        node.content ||
-        (children && children.length > 0 ? children[0]?.content : '') ||
-        'No content';
+        node.content?.trim() ||
+        (children && children.length > 0 ? children[0]?.content?.trim() : '') ||
+        '';
+      if (!codeContent) {
+        console.log('Skipping empty code block:', node); // Debug log
+        return null;
+      }
       return (
         <View key={node.key} style={markdownStyles.code_block}>
           <ThemedText
@@ -320,32 +327,54 @@ const SubjectDetails = () => {
     },
     image: (node, children, parent, styles) => {
       const { src, alt } = node.attributes;
+      console.log('Loading image:', { src, alt }); // Debug log
       return (
         <Image
           key={node.key}
           source={{ uri: src }}
           style={markdownStyles.image}
           accessibilityLabel={alt || 'Image'}
+          onError={e =>
+            console.log('Image load error:', src, e.nativeEvent.error)
+          }
+          defaultSource={{
+            uri: 'https://via.placeholder.com/200?text=Image+Failed',
+          }}
         />
       );
     },
   };
 
   const markdownRenderer = (content: string) => {
-    // Replace **Math Example**: pattern with a fenced code block
-    let processedContent = content.replace(
-      /\*\*Math Example\*\*:([\s\S]*?)(?=\n\n|$)/g,
-      '```math\n$1\n```'
-    );
-    // Remove any existing [math_example] tags and replace with fenced code block
+    console.log('Processing markdown:', content.substring(0, 100) + '...'); // Debug log
+    let processedContent = content;
+    // Replace **Math Example**: with fenced math block
     processedContent = processedContent.replace(
-      /\[math_example\](.*?)\[\/math_example\]/gs,
-      '```math\n$1\n```'
+      /\*\*Math Example\*\*:([\s\S]*?)(?=\n\n|$)/g,
+      (match, p1) => {
+        const trimmed = p1.trim();
+        if (!trimmed) {
+          console.log('Skipping empty Math Example:', match); // Debug log
+          return '';
+        }
+        return `\n\`\`\`math\n${trimmed}\n\`\`\`\n`;
+      }
+    );
+    // Replace [math_example]...[/math_example] with fenced math block
+    processedContent = processedContent.replace(
+      /\[math_example\]([\s\S]*?)\[\/math_example\]/gs,
+      (match, p1) => {
+        const trimmed = p1.trim();
+        if (!trimmed) {
+          console.log('Skipping empty math_example:', match); // Debug log
+          return '';
+        }
+        return `\n\`\`\`math\n${trimmed}\n\`\`\`\n`;
+      }
     );
     return processedContent;
   };
 
-  // Function to format JSON content without Markdown
   const renderJsonContent = (jsonString: string) => {
     try {
       const jsonObject = JSON.parse(jsonString);
@@ -367,6 +396,7 @@ const SubjectDetails = () => {
         </View>
       );
     } catch (error) {
+      console.log('JSON parse error:', error); // Debug log
       return (
         <View style={styles.jsonBlock}>
           <ThemedText
@@ -386,23 +416,20 @@ const SubjectDetails = () => {
     }
   };
 
-  // Process chapter content to extract JSON and Markdown parts
   const processContent = (content: string) => {
     const parts: JSX.Element[] = [];
     let remainingContent = content;
     let match;
 
-    // Regex to find [json_example] content
-    const jsonRegex = /\[json_example\](.*?)\[\/json_example\]/gs;
+    const jsonRegex = /\[json_example\]([\s\S]*?)\[\/json_example\]/gs;
 
     while ((match = jsonRegex.exec(remainingContent)) !== null) {
       const jsonContent = match[1].trim();
-      const beforeJson = remainingContent.substring(0, match.index);
-      const afterJson = remainingContent.substring(
-        match.index + match[0].length
-      );
+      const beforeJson = remainingContent.substring(0, match.index).trim();
+      const afterJson = remainingContent
+        .substring(match.index + match[0].length)
+        .trim();
 
-      // Add the Markdown content before the JSON
       if (beforeJson) {
         parts.push(
           <Markdown
@@ -416,17 +443,17 @@ const SubjectDetails = () => {
         );
       }
 
-      // Add the JSON content
-      parts.push(
-        <View key={`json-${parts.length}`}>
-          {renderJsonContent(jsonContent)}
-        </View>
-      );
+      if (jsonContent) {
+        parts.push(
+          <View key={`json-${parts.length}`}>
+            {renderJsonContent(jsonContent)}
+          </View>
+        );
+      }
 
       remainingContent = afterJson;
     }
 
-    // Add any remaining Markdown content
     if (remainingContent) {
       parts.push(
         <Markdown
@@ -440,7 +467,11 @@ const SubjectDetails = () => {
       );
     }
 
-    return parts;
+    return parts.length > 0 ? (
+      parts
+    ) : (
+      <ThemedText>No content to display</ThemedText>
+    );
   };
 
   return (
@@ -533,6 +564,7 @@ const styles = StyleSheet.create({
   mathText: {
     fontSize: 16,
     lineHeight: 24,
+    fontFamily: 'monospace',
   },
   jsonBlock: {
     backgroundColor: '#1a1a1a',
