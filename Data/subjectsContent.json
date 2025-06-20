@@ -13,7 +13,12 @@
           "id": 2,
           "title": "Quadratic Equations",
           "content": "# Quadratic Equations\n\nQuadratic equations are polynomials of degree 2.\n\n## General Form\n\nA quadratic equation is written as ax^2 + bx + c = 0.\n\n**Math Example**:\n\n```math\nSolve x^2 - 5x + 6 = 0\n\nSolution:\n1. Factorize: (x - 2)(x - 3) = 0\n2. Set each factor to zero: x = 2 or x = 3\n```\n\n## Applications\n\n- Used in physics for projectile motion.\n- Common in optimization problems.\n\n![Quadratic Graph](https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Quadratic_function_graph.svg/320px-Quadratic_function_graph.svg.png)"
-        }
+        },
+        {
+  "id": 3,
+  "title": "Sequence and Series",
+  "content": "# Sequence and Series\n\nA **sequence** is an ordered list of numbers that follow a specific pattern. A **series** is the sum of the elements of a sequence.\n\n## What is a Sequence?\n\nA sequence can be defined using a rule or formula. It may be **finite** or **infinite**.\n\n**Types of Sequences**:\n\n- **Arithmetic Sequence**: The difference between terms is constant.\n  \n  ```math\n  a_n = a + (n - 1)d\n  Example: 2, 4, 6, 8, 10...\n  ```\n\n- **Geometric Sequence**: Each term is obtained by multiplying the previous term by a constant.\n  \n  ```math\n  a_n = a × r^{(n - 1)}\n  Example: 3, 6, 12, 24...\n  ```\n\n- **Fibonacci Sequence**: Each term is the sum of the previous two.\n\n  ```math\n  a_n = a_{n-1} + a_{n-2}\n  Example: 0, 1, 1, 2, 3, 5, 8...\n  ```\n\n## What is a Series?\n\nA series is the **sum** of the terms in a sequence.\n\n**Arithmetic Series Formula**:\n\n```math\nS_n = \\frac{n}{2}(2a + (n - 1)d)\n```\n\n**Geometric Series Formula**:\n\n```math\nS_n = a \\cdot \\frac{1 - r^n}{1 - r}, \\quad r \\neq 1\n```\n\n## Real-World Applications\n\n- Computer algorithms and coding patterns\n- Interest calculations in finance\n- Physical modeling (e.g., waveforms)\n- Predictive modeling and data science\n\n![Sequence Image](https://images.app.goo.gl/tN1JD)\n\nFor more details, visit [Sequence and Series on Wikipedia](https://en.wikipedia.org/wiki/Sequence)\n\n[^1]: The concepts of sequences and series have existed since ancient Greek mathematics and are foundational in calculus and modern analysis."
+  }
       ]
     },
     {
@@ -117,6 +122,391 @@
           "content": "# Sorting Algorithms\n\nSorting algorithms are used to arrange elements in a specific order.\n\n## Bubble Sort\n\nA simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.\n\n**Algorithm Steps**:\n\n1. Start at the beginning of the list.\n2. Compare the first two elements. If the first is greater than the second, swap them.\n3. Move to the next pair of elements and repeat step 2.\n4. Continue until the end of the list. The last element will be in its correct sorted position.\n5. Repeat the process for the remaining unsorted elements until the entire list is sorted.\n\n**Code Example (Python)**:\n\n```python\ndef bubble_sort(list_):\n  n = len(list_)\n  for i in range(n-1):\n    for j in range(0, n-i-1):\n      if list_[j] > list_[j+1]:\n        list_[j], list_[j+1] = list_[j+1], list_[j]\n  return list_\n\nmy_list = [5, 1, 4, 2, 8]\nsorted_list = bubble_sort(my_list)\nprint(sorted_list) # Output: [1, 2, 4, 5, 8]\n```\n\n![Bubble Sort Animation](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bubble-sort-example-300px.gif/220px-Bubble-sort-example-300px.gif)\n\nLearn more at [Bubble Sort](https://en.wikipedia.org/wiki/Bubble_sort)."
         }
       ]
+    },
+    {
+  "id": 9,
+  "name": "Data Structures and Algorithms",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Arrays and Linked Lists",
+      "content": "# Arrays and Linked Lists\n\nData structures are ways to organize and store data efficiently.\n\n## Arrays\n\nAn array is a collection of items stored at contiguous memory locations. Each item can be accessed using an index.\n\n**Code Example (Python)**:\n\n```python\nmy_array = [1, 2, 3, 4, 5]\nprint(my_array[0])  # Output: 1\n```\n\n## Linked Lists\n\nA linked list is a sequence of elements where each element points to the next one. They do not need to be stored contiguously in memory.\n\n![Array vs Linked List](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Array_vs_Linked_List.svg/450px-Array_vs_Linked_List.svg.png)\n\nExplore more at [Array Data Structure](https://en.wikipedia.org/wiki/Array_data_structure) and [Linked List](https://en.wikipedia.org/wiki/Linked_list)."
+    },
+    {
+      "id": 2,
+      "title": "Stacks and Queues",
+      "content": "# Stacks and Queues\n\nBoth are linear data structures used to store and manage data.\n\n## Stack (LIFO)\n\nA stack follows Last In, First Out (LIFO) principle. Think of it like a stack of plates.\n\n**Code Example (Python)**:\n\n```python\nstack = []\nstack.append(10)\nstack.append(20)\nprint(stack.pop())  # Output: 20\n```\n\n## Queue (FIFO)\n\nA queue follows First In, First Out (FIFO) principle. Like a line at a ticket counter.\n\n**Code Example (Python)**:\n\n```python\nfrom collections import deque\nqueue = deque([1, 2, 3])\nqueue.append(4)\nprint(queue.popleft())  # Output: 1\n```\n\nVisualize at [Stack Wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) and [Queue Wiki](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))."
+    },
+    {
+      "id": 3,
+      "title": "Trees and Binary Trees",
+      "content": "# Trees and Binary Trees\n\nTrees are hierarchical data structures used for efficient data lookup, insertion, and deletion.\n\n## Binary Tree\n\nA binary tree is a tree where each node has at most two children.\n\n**Code Snippet (Python - Node Class)**:\n\n```python\nclass Node:\n    def __init__(self, key):\n        self.left = None\n        self.right = None\n        self.val = key\n```\n\n## Traversal Methods:\n- Inorder (Left, Root, Right)\n- Preorder (Root, Left, Right)\n- Postorder (Left, Right, Root)\n\nLearn more about trees at [Tree (Data Structure)](https://en.wikipedia.org/wiki/Tree_(data_structure))."
+    },
+    {
+      "id": 4,
+      "title": "Searching and Sorting Algorithms",
+      "content": "# Searching and Sorting Algorithms\n\nAlgorithms that help locate items and order elements efficiently.\n\n## Searching\n- **Linear Search**: Sequentially check every element.\n- **Binary Search**: Repeatedly divide a sorted array to find an element.\n\n**Binary Search Code Example (Python)**:\n\n```python\ndef binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1\n```\n\n## Sorting\n- Bubble Sort\n- Selection Sort\n- Merge Sort\n- Quick Sort\n\nMore at [Sorting Algorithms](https://en.wikipedia.org/wiki/Sorting_algorithm)."
     }
+  ]
+},
+{
+  "id": 10,
+  "name": "Data Science Foundations",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Introduction: Objective, Scope, and Outcome of the Course",
+      "content": "# Introduction: Objective, Scope, and Outcome of the Course\n\n## Objective\nTo equip students with practical and theoretical foundations in data science, focusing on data handling, statistical inference, and model building.\n\n## Scope\n- Data science workflow\n- Tools and environments\n- Real-world applications\n\n## Outcome\nBy the end of the course, learners will:\n- Understand data science pipelines\n- Apply statistical techniques\n- Use machine learning models effectively"
+    },
+    {
+      "id": 2,
+      "title": "Toolboxes and Data Operations",
+      "content": "# Toolboxes and Data Operations\n\n## Tools\n- Python\n- Pandas, NumPy, Matplotlib, Seaborn\n- IDEs: Jupyter Notebook, VS Code\n\n## Data Operations\n- Reading and writing data (CSV, JSON, Excel)\n- Selecting and filtering rows/columns\n- Sorting, grouping, ranking\n- Rearranging and visualizing data\n\n**Code Example:**\n```python\nimport pandas as pd\ndf = pd.read_csv('data.csv')\nsummary = df.groupby('category').sum().sort_values('value')\n```"
+    },
+    {
+      "id": 3,
+      "title": "Descriptive Statistics and Inference",
+      "content": "# Descriptive Statistics and Inference\n\n## Descriptive Analysis\n- Mean, median, mode\n- Standard deviation, variance\n- Z-scores, percentiles\n\n## Exploratory Data Analysis\n- Data distribution and skewness\n- Visualizations: histograms, boxplots\n\n## Inference\n- Confidence intervals\n- Hypothesis testing with p-values\n- Variability and sampling errors\n\n**More:** [Statistical Inference](https://en.wikipedia.org/wiki/Statistical_inference)"
+    },
+    {
+      "id": 4,
+      "title": "Supervised Learning Models",
+      "content": "# Supervised Learning Models\n\n## Learning Pipeline\n- Splitting: training, validation, and test sets\n- Building models: fit, predict, evaluate\n- Learning curves and model performance\n\n## Algorithms\n- Support Vector Machines (SVM)\n- Decision Trees and Random Forests\n\n**Example Code (scikit-learn):**\n```python\nfrom sklearn.ensemble import RandomForestClassifier\nmodel = RandomForestClassifier()\nmodel.fit(X_train, y_train)\n```"
+    },
+    {
+      "id": 5,
+      "title": "Regression and Clustering",
+      "content": "# Regression and Clustering\n\n## Regression\n- Simple Linear Regression\n- Multiple and Polynomial Regression\n- Sparse regression with LASSO/Ridge\n\n## Unsupervised Learning\n- Clustering: K-Means, Hierarchical\n- Similarity and distance metrics (Euclidean, Cosine)\n- Clustering quality metrics (Silhouette Score)\n\n**Case Study:** Segmenting customers based on behavior"
+    },
+    {
+      "id": 6,
+      "title": "Network Analysis and Graph Theory",
+      "content": "# Network Analysis and Graph Theory\n\n## Concepts\n- Nodes and edges\n- Degree and centrality (Betweenness, Closeness)\n- Ego-networks and influence propagation\n\n## Applications\n- PageRank algorithm\n- Community detection (Louvain, Girvan–Newman)\n- Social network visualization and analysis\n\n**Libraries:** NetworkX, Gephi, igraph"
+    }
+  ]
+},
+{
+  "id": 11,
+  "name": "Mathematics III",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Sequences and Series",
+      "content": "# Sequences and Series\n\n## Topics Covered\n- Convergence of sequences and series\n- Tests for convergence: Ratio Test, Root Test\n- Power series and radius of convergence\n- Taylor’s and Maclaurin’s Series\n- Series representations of exponential, logarithmic, and trigonometric functions\n\n**Example:**\nMaclaurin Series for \\( e^x = 1 + \\frac{x}{1!} + \\frac{x^2}{2!} + \\cdots \\)"
+    },
+    {
+      "id": 2,
+      "title": "Partial Derivatives and Optimization",
+      "content": "# Partial Derivatives and Optimization\n\n## Concepts\n- Limits and continuity in multivariable functions\n- Chain Rule and Jacobian\n- Implicit functions\n- Directional derivatives and gradient\n- Maxima, minima, and saddle points\n- Curl and divergence\n\n**Visualize:** [Gradient and Level Curves](https://en.wikipedia.org/wiki/Gradient)"
+    },
+    {
+      "id": 3,
+      "title": "Multiple Integrals and Vector Calculus",
+      "content": "# Multiple Integrals and Vector Calculus\n\n## Techniques\n- Double and triple integrals in Cartesian and polar coordinates\n- Change of variables in multiple integrals\n- Order of integration\n\n## Vector Calculus Theorems (Statement Only)\n- Green's Theorem\n- Gauss's Divergence Theorem\n- Stokes' Theorem"
+    },
+    {
+      "id": 4,
+      "title": "First Order Differential Equations",
+      "content": "# First Order Differential Equations\n\n## Solving Techniques\n- Exact, Linear, and Bernoulli’s Equations\n- Equations not of first degree: solvable for \\( p, y, x \\)\n- Clairaut’s Equation\n\n## Types of Solutions\n- General and Singular Solutions"
+    },
+    {
+      "id": 5,
+      "title": "Second Order Differential Equations",
+      "content": "# Second Order Differential Equations\n\n## Methods\n- Constant coefficient equations\n- D-operator method\n- Variation of parameters\n- Cauchy–Euler equations\n\n**Example:**\n\\( y'' + 3y' + 2y = 0 \\)"
+    },
+    {
+      "id": 6,
+      "title": "Graph Theory: Fundamentals",
+      "content": "# Graph Theory: Fundamentals\n\n## Key Concepts\n- Graph, Walk, Path, Circuit\n- Euler and Hamiltonian paths\n- Directed Graphs (Digraphs)\n\n**Explore:** [Eulerian Path](https://en.wikipedia.org/wiki/Eulerian_path)"
+    },
+    {
+      "id": 7,
+      "title": "Graph Representations",
+      "content": "# Graph Representations\n\n## Matrix Forms\n- Incidence matrix\n- Adjacency matrix\n\nThese representations are used in algorithms and network analysis."
+    },
+    {
+      "id": 8,
+      "title": "Trees and Minimum Spanning Trees",
+      "content": "# Trees and Minimum Spanning Trees\n\n## Concepts\n- Tree and Binary Tree\n- Spanning Tree basics\n- Kruskal’s and Prim’s algorithms for minimal spanning trees\n\n**Visualization:** [Minimum Spanning Tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree)"
+    }
+  ]
+},
+{
+  "id": 12,
+  "name": "Engineering Economics and Financial Decision Making",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Economic Decision Making",
+      "content": "# Economic Decision Making\n\n## Overview\nUnderstanding how to evaluate trade-offs and make value-driven decisions in engineering environments.\n\n## Key Elements\n- Types of economic problems\n- Role in project selection and design\n- Structured decision-making process\n\n## Steps\n1. Identify objectives\n2. Generate alternatives\n3. Evaluate outcomes\n4. Select the most feasible option"
+    },
+    {
+      "id": 2,
+      "title": "Engineering Costs and Estimation",
+      "content": "# Engineering Costs and Estimation\n\n## Types of Costs\n- Fixed, Variable, Marginal, and Average Costs\n- Recurring vs. Nonrecurring Costs\n- Sunk Costs and Opportunity Costs\n- Incremental Costs, Cash vs. Book Costs\n- Life-Cycle Costs\n\n## Estimation Techniques\n- Per Unit and Segmenting Models\n- Cost Indexes & Power-Sizing\n- Improvement and Learning Curves"
+    },
+    {
+      "id": 3,
+      "title": "Cash Flow, Interest, and Equivalence",
+      "content": "# Cash Flow, Interest, and Equivalence\n\n## Concepts\n- Cash Flow Diagrams\n- Categories and Computation\n- Time Value of Money: Present & Future Value\n- Debt Repayment\n- Nominal vs. Effective Interest Rates\n\n**Formula Example:**\n\\[ F = P(1 + i)^n \\]"
+    },
+    {
+      "id": 4,
+      "title": "Rate of Return and Benefit-Cost Analysis",
+      "content": "# Rate of Return and Benefit-Cost Analysis\n\n## Topics Covered\n- Annual Cash Flow and Salvage Value\n- Internal Rate of Return (IRR)\n- Incremental Return Comparison\n- Future Worth and Benefit-Cost Ratio\n- Sensitivity and Breakeven Analysis\n- Economic Analysis in the Public Sector"
+    },
+    {
+      "id": 5,
+      "title": "Inflation and Price Change",
+      "content": "# Inflation and Price Change\n\n## Definitions\n- Causes and Effects of Inflation\n- Price Indexes: Composite vs. Commodity\n- Adjusting Cash Flows for Inflation\n- Use of Indexes in Economic Evaluation\n- Cash Flow with Variable Inflation Rates"
+    },
+    {
+      "id": 6,
+      "title": "Present Worth Analysis and Economic Viewpoints",
+      "content": "# Present Worth Analysis and Viewpoints\n\n## Techniques\n- End-of-Year Convention\n- Borrowed Money and Ownership Viewpoints\n- Effect of Inflation, Taxes, and Deflation\n- Comparing Multiple Alternatives\n- Applying Present Worth Techniques"
+    },
+    {
+      "id": 7,
+      "title": "Uncertainty and Risk in Decision Making",
+      "content": "# Uncertainty and Risk in Decision Making\n\n## Concepts\n- Estimates and Probability Distributions\n- Joint Probability and Expected Value\n- Economic Decision Trees\n- Risk vs. Return\n- Monte Carlo Simulation and Real Options"
+    },
+    {
+      "id": 8,
+      "title": "Depreciation and Capital Allowance",
+      "content": "# Depreciation and Capital Allowance\n\n## Key Ideas\n- Deterioration & Obsolescence\n- Depreciation vs. Expenses\n- Straight-Line and Declining Balance Methods\n- Tax Regulations and Capital Recovery\n- Asset Types and Allowance Rules"
+    },
+    {
+      "id": 9,
+      "title": "Replacement Analysis",
+      "content": "# Replacement Analysis\n\n## Techniques\n- Replacement Decision Maps\n- Minimum Cost Life of New Asset\n- Marginal Cost and Capital Recovery\n- Lifecycle Comparison of Equipment"
+    },
+    {
+      "id": 10,
+      "title": "Accounting Fundamentals",
+      "content": "# Accounting Fundamentals\n\n## Financial Records\n- Function of Accounting in Engineering\n- Balance Sheet and Income Statement\n- Financial Ratios for Decision Making\n\n## Cost Accounting\n- Capital Transactions\n- Direct vs. Indirect Costs\n- Allocation of Overheads and Indirect Expenses"
+    }
+  ]
+},
+{
+  "id": 13,
+  "name": "Data Mining Techniques and Applications",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Introduction to Data Mining",
+      "content": "# Introduction to Data Mining\n\n## Concepts\n- Extracting hidden patterns from large datasets\n- Interdisciplinary roots: statistics, machine learning, databases\n\n## Process\n- Data selection → Preprocessing → Transformation → Mining → Evaluation\n\n## Applications\n- Marketing, fraud detection, healthcare, recommendation engines\n\n## Techniques\n- Classification, Clustering, Association Rule Mining, Regression\n\n## Challenges\n- High-dimensional data, scalability, privacy, noisy data"
+    },
+    {
+      "id": 2,
+      "title": "Data Preprocessing",
+      "content": "# Data Preprocessing\n\n## Data Types\n- Numerical, Categorical, Ordinal, Temporal\n\n## Quality Aspects\n- Completeness, Consistency, Accuracy\n\n## Descriptive Summarization\n- Central tendency: Mean, Median, Mode\n- Dispersion: Range, Variance, Standard Deviation\n\n## Techniques\n- Data Cleaning, Integration, Transformation\n- Data Reduction: PCA, Sampling, Binning"
+    },
+    {
+      "id": 3,
+      "title": "Association Rule Mining and Classification",
+      "content": "# Association Rule Mining and Classification\n\n## Market Basket Analysis\n- Discovering product affinities in transactions\n\n## Algorithms\n- Naïve approach\n- Apriori algorithm\n- Direct Hashing and Pruning (DHP)\n\n## Classification Models\n- Decision Tree Induction\n- Bayesian Classifiers\n- Rule-Based Classifiers\n\n## Prediction\n- Linear and Nonlinear Regression models\n\n## Tools\n- Orange, Weka, R, Python (MLxtend)"
+    },
+    {
+      "id": 4,
+      "title": "Cluster Analysis",
+      "content": "# Cluster Analysis\n\n## Data Types in Clustering\n- Continuous, Binary, Nominal, Ordinal, Mixed\n\n## Clustering Methods\n- Partitioning (e.g., K-Means)\n- Hierarchical (Agglomerative, Divisive)\n- Density-based (DBSCAN)\n\n## Evaluation\n- Silhouette Score, Davies–Bouldin Index\n\n## Tools\n- scikit-learn, R (cluster), ELKI, MATLAB"
+    },
+    {
+      "id": 5,
+      "title": "Web and Text Mining",
+      "content": "# Web and Text Mining\n\n## Web Mining Types\n- Content Mining (page data)\n- Usage Mining (user behavior)\n- Structure Mining (site topology)\n\n## Algorithms\n- Hubs and Authorities (HITS)\n- PageRank\n\n## Text Mining\n- Tokenization, Stemming, TF-IDF\n- Support Vector Machine (SVM) for text classification\n\n## Tools\n- BeautifulSoup, Scrapy, NLTK, Gensim"
+    },
+    {
+      "id": 6,
+      "title": "Applications and Privacy in Data Mining",
+      "content": "# Data Mining Applications and Privacy\n\n## Application Domains\n- Web analytics\n- Financial modeling\n- Telecom customer segmentation\n- Bioinformatics and drug discovery\n- Industrial engineering, retail\n\n## Social Implications\n- Profiling and algorithmic bias\n- Ethical considerations\n\n## Privacy and Security\n- Data anonymization\n- IT Act: overview and data protection\n\n**Explore:** [Data Privacy in India – IT Act](https://en.wikipedia.org/wiki/Information_Technology_Act,_2000)"
+    }
+  ]
+},
+{
+  "id": 14,
+  "name": "Database Systems and Management",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Database System Architecture and Data Models",
+      "content": "# Database System Architecture and Data Models\n\n## Topics\n- Data Abstraction (physical, logical, view levels)\n- Data Independence (logical and physical)\n- DDL (Data Definition Language)\n- DML (Data Manipulation Language)\n\n## Data Models\n- Entity-Relationship Model\n- Relational Model\n- Network and Object-Oriented Models\n- Integrity Constraints\n- Basic Operations: Insert, Update, Delete, Select"
+    },
+    {
+      "id": 2,
+      "title": "Relational Query Languages and Design",
+      "content": "# Relational Query Languages and Design\n\n## Languages\n- Relational Algebra\n- Tuple and Domain Relational Calculus\n- SQL3: DDL and DML constructs\n- Open-source and Commercial DBMS: MySQL, Oracle, DB2, SQL Server\n\n## Design Theory\n- Domain and Functional Dependencies\n- Armstrong’s Axioms\n- Normal Forms (1NF to BCNF, 4NF)\n- Dependency Preservation\n- Lossless Decomposition"
+    },
+    {
+      "id": 3,
+      "title": "Query Processing and Optimization",
+      "content": "# Query Processing and Optimization\n\n## Concepts\n- Evaluation of Relational Algebra Expressions\n- Query Equivalence\n- Join Strategies (Nested Loops, Hash Join, Merge Join)\n- Query Optimization Techniques\n- Cost-Based Optimization"
+    },
+    {
+      "id": 4,
+      "title": "Storage and Indexing Strategies",
+      "content": "# Storage and Indexing Strategies\n\n## Methods\n- Indices: Single-level, Multi-level\n- B+ Trees and Variants\n- Hashing Techniques: Static and Dynamic\n- File Organization: Heap, Sequential, Hashed"
+    },
+    {
+      "id": 5,
+      "title": "Transaction Processing and Recovery",
+      "content": "# Transaction Processing and Recovery\n\n## Concepts\n- ACID Properties\n- Concurrency Control\n- Serializability and Schedules\n- Locking Protocols: Two-phase, Timestamp-Based\n- Multiversion and Optimistic Techniques\n- Recovery Mechanisms: Log-based, Checkpointing"
+    },
+    {
+      "id": 6,
+      "title": "Database Security",
+      "content": "# Database Security\n\n## Key Elements\n- Authentication and Authorization\n- Access Control Models: DAC, MAC, RBAC\n- SQL Injection Attacks\n- Intrusion Detection and Prevention\n- Secure Database Design Principles"
+    },
+    {
+      "id": 7,
+      "title": "Advanced Database Topics",
+      "content": "# Advanced Database Topics\n\n## Architectures\n- Object-Oriented and Object-Relational Databases\n- Logical Databases\n- Web Databases and Applications\n- Distributed Databases\n- Data Warehousing Concepts\n- Introduction to Data Mining Integration"
+    }
+  ]
+},
+{
+  "id": 15,
+  "name": "Design and Analysis of Algorithms",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Introduction to Algorithms and Complexity Analysis",
+      "content": "# Introduction to Algorithms and Complexity Analysis\n\n## Characteristics of Algorithms\n- Input and Output\n- Finiteness\n- Definiteness\n- Effectiveness\n\n## Analysis of Algorithms\n- **Asymptotic Notation**: Big-O, Big-Ω, Big-Θ\n- Best, Average, and Worst-Case Scenarios\n- Time and Space Trade-offs\n\n## Recurrence Relations\n- Substitution Method\n- Recursion Tree Method\n- Master’s Theorem"
+    },
+    {
+      "id": 2,
+      "title": "Fundamental Algorithmic Strategies",
+      "content": "# Fundamental Algorithmic Strategies\n\n## Approaches\n- Brute Force\n- Greedy Algorithms\n- Dynamic Programming\n- Backtracking\n- Branch and Bound\n\n## Applications\n- Bin Packing\n- 0/1 Knapsack Problem\n- Traveling Salesman Problem (TSP)\n\n## Heuristics\n- Definition and Characteristics\n- Use Cases: Game AI, Metaheuristics, Approximation"
+    },
+    {
+      "id": 3,
+      "title": "Graph and Tree Algorithms",
+      "content": "# Graph and Tree Algorithms\n\n## Traversals\n- Depth First Search (DFS)\n- Breadth First Search (BFS)\n\n## Key Algorithms\n- Dijkstra’s and Bellman-Ford (Shortest Path)\n- Floyd-Warshall (All-Pairs Shortest Path)\n- Prim’s and Kruskal’s (Minimum Spanning Tree)\n- Topological Sorting\n- Network Flow (Ford–Fulkerson Algorithm)\n\n## Computability\n- Tractable vs. Intractable Problems"
+    },
+    {
+      "id": 4,
+      "title": "Advanced Complexity Theory and Problem Classes",
+      "content": "# Advanced Complexity Theory and Problem Classes\n\n## Complexity Classes\n- Class P\n- NP and NP-Complete\n- NP-Hard\n\n## Theoretical Foundations\n- Cook’s Theorem\n- Reductions Between Problems\n- Examples: SAT, 3-SAT, CLIQUE, SUBSET-SUM\n\n## Advanced Topics\n- Approximation Algorithms\n- Randomized Algorithms\n- Beyond NP: PSPACE, EXPTIME, etc."
+    }
+  ]
+},
+{
+  "id": 16,
+  "name": "Environmental Science and Engineering",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Fundamentals of Environment and Ecology",
+      "content": "# Fundamentals of Environment and Ecology\n\n## Environmental Relationships\n- Man, Society, and Environment\n- Interdependence of human systems and ecosystems\n\n## Population and Resources\n- Population growth math and effects\n- Renewable, Non-renewable, and Potentially Renewable resources\n- Resource exhaustion and sustainability\n\n## Systems\n- Steady-state conservation systems\n- Non-conservative pollutant dynamics\n\n## Environmental Degradation\n- **Natural hazards**: Floods, Earthquakes, Landslides\n- **Anthropogenic**: Acid Rain – causes and control\n\n## Ecology Basics\n- Open and Closed Systems\n- Species, Community, Ecosystem types and structure\n- Forest, Grassland, Desert, Aquatic, and Mangrove ecosystems\n- Food chains and webs\n\n## Biogeochemical Cycles\n- Oxygen, Carbon, Nitrogen, Phosphorus, Sulphur cycles (simplified diagrams)\n\n## Biodiversity\n- Types, Hotspots, Endemic Species\n- Threats and Conservation techniques"
+    },
+    {
+      "id": 2,
+      "title": "Atmospheric Systems and Air Pollution",
+      "content": "# Atmospheric Systems and Air Pollution\n\n## Layers of Atmosphere\n- Troposphere, Stratosphere, Mesosphere, Thermosphere\n- Boundaries: Tropopause, Mesopause\n\n## Thermal and Radiative Balance\n- Conduction, Convection, Radiation\n- Earth’s temperature model (black body/albedo)\n\n## Global Climate Concerns\n- Greenhouse Effect, Global Warming, Sea-Level Rise\n- Earth’s heat budget and control measures\n\n## Atmospheric Stability\n- Lapse Rates and Inversions\n\n## Air Pollution\n- Definitions: Pollutants vs. Contaminants\n- Sources and effects: CO, NOx, SOx, SPM, PAN\n- Smog types: Photochemical and London Smog\n- CFCs and ozone depletion\n\n## Air Pollution Control\n- Emission Standards\n- Devices: Cyclone Separator, ESP, Baghouse, Scrubber, Catalytic Converter"
+    },
+    {
+      "id": 3,
+      "title": "Water Pollution and Hydrological Processes",
+      "content": "# Water Pollution and Hydrological Processes\n\n## Hydrosphere\n- Hydrological Cycle\n- Natural water systems\n\n## Water Pollutants\n- Organic and inorganic contaminants\n- Nutrients, Heavy Metals, VOCs\n\n## Pollution Types\n- **River**: DO/BOD/COD, oil, pH\n- **Lake**: Eutrophication\n- **Groundwater**: Aquifers, gradient, flow\n\n## Wastewater Standards\n- BOD, COD, Oil and Grease limits"
+    },
+    {
+      "id": 4,
+      "title": "Water and Wastewater Treatment Systems",
+      "content": "# Water and Wastewater Treatment Systems\n\n## Water Treatment\n- Coagulation & Flocculation\n- Sedimentation & Filtration\n- Disinfection\n- Hardness, Alkalinity, Softening\n\n## Wastewater Treatment\n- Primary: Sedimentation\n- Secondary: Trickling Filters, Activated Sludge, RBC\n- Tertiary: Definition and examples\n\n## Toxic Contaminants\n- Lead, Mercury, Cadmium, Arsenic — effects and pathways"
+    },
+    {
+      "id": 5,
+      "title": "Lithosphere and Solid Waste Management",
+      "content": "# Lithosphere and Solid Waste Management\n\n## Earth and Soil\n- Structure of Earth\n- Types of rock and soil components\n\n## Solid Waste Types\n- Municipal, Industrial, Agricultural, Biomedical, Hazardous\n\n## Treatment and Disposal\n- Open dumping, Landfilling, Incineration\n- Composting and Recycling\n- Hazardous and Biomedical Waste Management"
+    },
+    {
+      "id": 6,
+      "title": "Noise Pollution and Control",
+      "content": "# Noise Pollution and Control\n\n## Definitions\n- Noise, Frequency, Intensity, Pressure\n- Equivalent Noise Level (Leq), L10 (18hr), Ld\n\n## Classification\n- Transport, Occupational, Neighborhood\n\n## Effects and Control\n- Health impacts, threshold values\n- Noise barrier techniques and policy standards"
+    },
+    {
+      "id": 7,
+      "title": "Environmental Impact and Legal Framework",
+      "content": "# Environmental Impact and Legal Framework\n\n## Tools\n- Environmental Impact Assessment (EIA)\n- Environmental Audit\n\n## Legislation\n- Indian Environmental Protection Acts\n- Global Agreements: Kyoto Protocol, Paris Agreement, Montreal Protocol, UNFCCC\n\n## Governance\n- Role of regulatory bodies in sustainability enforcement"
+    }
+  ]
+},
+{
+  "id": 17,
+  "name": "Software Engineering and System Design",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Overview of System Analysis & Design",
+      "content": "# Overview of System Analysis & Design\n\n## Concepts\n- Business Systems and Information Flow\n- System Development Life Cycle (SDLC)\n\n## SDLC Models\n- Waterfall Model\n- Spiral Model\n\n## Feasibility Studies\n- Technical Feasibility\n- Economic Feasibility: Cost–Benefit Analysis\n- COCOMO Model (Constructive Cost Estimation Model)"
+    },
+    {
+      "id": 2,
+      "title": "System Design Approaches and Techniques",
+      "content": "# System Design Approaches and Techniques\n\n## Design Tools\n- Context Diagrams\n- Data Flow Diagrams (DFD)\n\n## Problem Decomposition\n- Top-Down vs. Bottom-Up Design\n\n## Decision Modeling\n- Decision Trees\n- Decision Tables\n- Structured English\n\n## Methodologies\n- Functional vs. Object-Oriented Design"
+    },
+    {
+      "id": 3,
+      "title": "Coding, Documentation, and Testing",
+      "content": "# Coding, Documentation, and Testing\n\n## Programming Practices\n- Structured Programming\n- Object-Oriented Programming (OOP)\n- Information Hiding\n- Code Reusability and Modularity\n\n## Documentation\n- User Manuals, System Requirements, Technical Specs\n\n## Software Testing\n- Levels: Unit, Integration, System, Acceptance\n- Test Case Design\n- Validation vs. Verification\n- Metrics: Code Coverage, Defect Density\n- Reliability Assessment\n- Monitoring and Control Techniques"
+    },
+    {
+      "id": 4,
+      "title": "Software Project Management",
+      "content": "# Software Project Management\n\n## Planning and Execution\n- Project Scheduling (Gantt Charts, PERT, CPM)\n- Resource and Staffing Plans\n\n## Configuration and Quality Control\n- Software Configuration Management (SCM)\n- Change Control and Versioning\n- Quality Assurance (QA) Practices\n- Project Monitoring and Reporting"
+    },
+    {
+      "id": 5,
+      "title": "Modeling and UML Diagrams",
+      "content": "# Modeling and UML Diagrams\n\n## Why Modeling?\n- Abstraction, Clarity, Communication\n- Helps in Design Validation\n\n## UML Diagram Types\n- Class Diagram\n- Interaction Diagrams:\n  - Collaboration Diagram\n  - Sequence Diagram\n- State Chart Diagram\n- Activity Diagram\n- Implementation (Deployment) Diagram"
+    }
+  ]
+},
+{
+  "id": 18,
+  "name": "Probability and Statistical Modeling",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Introduction: Objective, Scope, and Outcome of the Course",
+      "content": "# Introduction\n\n## Objective\nTo provide a foundation in probability theory and statistical reasoning for modeling and analyzing uncertainty in real-world data.\n\n## Scope\n- Probability models and distributions\n- Statistical inference and estimation\n- Bayesian reasoning and stochastic processes\n\n## Outcome\nStudents will learn to model randomness, apply inference techniques, and critically evaluate statistical models."
+    },
+    {
+      "id": 2,
+      "title": "Probability Models and Principles",
+      "content": "# Probability Models and Principles\n\n## Key Concepts\n- Sample space, events, and probability axioms\n- Conditional probability and Bayes’ theorem\n- Event independence\n- Combinatorial techniques: permutations and combinations\n\n## Properties\n- Additivity, complementarity, total probability"
+    },
+    {
+      "id": 3,
+      "title": "Random Variables and Distributions",
+      "content": "# Random Variables and Distributions\n\n## Types\n- Discrete and continuous random variables\n- Probability Mass and Density Functions\n\n## Distributions\n- CDFs and properties\n- Joint and marginal distributions\n- Conditional distributions and independence\n- Variable transformation (1D cases)"
+    },
+    {
+      "id": 4,
+      "title": "Expectation and Convergence",
+      "content": "# Expectation and Convergence\n\n## Measures\n- Expectation (Discrete and Continuous)\n- Variance, Covariance, and Correlation\n- Moment and Generating Functions\n\n## Concepts\n- Conditional Expectation\n- Sampling Distributions\n- Convergence: in Probability, in Distribution\n- Monte Carlo Methods\n- Normal Approximation and Central Limit Theorem"
+    },
+    {
+      "id": 5,
+      "title": "Statistical Inference and Estimation",
+      "content": "# Statistical Inference and Estimation\n\n## Data Collection Methods\n- Population vs. Sample\n- Simple Random Sampling\n- Histograms, Surveys\n\n## Inference Models\n- Point and Interval Estimation\n- Likelihood and Maximum Likelihood Estimation (MLE)\n- Bayesian Inference\n  - Prior and Posterior Distributions\n  - Bayesian Estimation Techniques and Computations"
+    },
+    {
+      "id": 6,
+      "title": "Model Diagnostics and Stochastic Processes",
+      "content": "# Model Diagnostics and Stochastic Processes\n\n## Model Evaluation\n- Residual Analysis\n- Probability Plots\n- Chi-Square Goodness-of-Fit Test\n\n## Stochastic Modeling\n- Definition and Properties\n- Markov Chains: Transition Probabilities, State Classification\n- Poisson Process: Memorylessness, Event Count Distributions"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
   ]
 }

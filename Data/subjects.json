@@ -51,6 +51,182 @@
           "image": "https://cdn.slidesharecdn.com/ss_thumbnails/introtodsaa-230204043459-53980947-thumbnail.jpg?width=560&fit=bounds"
         }
       ]
+    },
+    {
+      "id": 3,
+      "name": "Semester 3",
+      "subjects": [
+      {
+      "id": 9,
+      "name": "Data Structure and Algorithm",
+      "image": "https://miro.medium.com/v2/resize:fit:1358/1*4ZcW5tSdizlbtDQyVpRTuA.jpeg"
+      },
+      {
+      "id": 10,
+      "name": "Introduction to Data Science",
+      "image": "https://st3.depositphotos.com/3102403/31995/v/450/depositphotos_319959276-stock-illustration-data-science-template.jpg"
+      },
+      {
+      "id": 11,
+      "name": "Mathematics III (Differential Calculus)",
+      "image": "https://cdn-icons-png.flaticon.com/512/3460/3460560.png"
+      },
+      {
+      "id": 12,
+      "name": "Humanities II (Economics for Engineers)",
+      "image": "https://clipground.com/images/humanities-clipart-13.jpg"
+      }
+    ]
+  },
+  {
+  "id": 4,
+  "name": "Semester 4",
+  "subjects": [
+    {
+      "id": 13,
+      "name": "Data Mining",
+      "image": "https://cdn-icons-png.flaticon.com/512/2519/2519409.png"
+    },
+    {
+      "id": 14,
+      "name": "Database Management",
+      "image": "https://img.freepik.com/premium-vector/database-digital-design-clip-art-vector-design-with-white-background_579306-11141.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Design & Analysis of Algorithm",
+      "image": "https://cdn-icons-png.flaticon.com/512/2721/2721290.png"
+    },
+    {
+      "id": 16,
+      "name": "Environmental Sciences",
+      "image": "https://static.vecteezy.com/system/resources/previews/001/222/374/original/global-ecology-and-environmental-concept-vector.jpg"
     }
+  ]
+},
+{
+  "id": 5,
+  "name": "Semester 5",
+  "subjects": [
+    {
+      "id": 17,
+      "name": "Software Engineering",
+      "image": "https://th.bing.com/th/id/OIP.hZNVxgd_NZJZLOwBEvTCqgHaIW?r=0&rs=1&pid=ImgDetMain&cb=idpwebpc2"
+    },
+    {
+      "id": 18,
+      "name": "Statistics for Data Science",
+      "image": "https://th.bing.com/th/id/R.5cc09b89ed6c31a19c066d333eeaebfb?rik=AQ7R5Q%2bjullHjA&riu=http%3a%2f%2fclipartmag.com%2fimages%2fstatistics-clipart-46.jpg&ehk=50MTNATd4UXLNVo8eDOz5wwSiHf913QdJuIq7vRw7%2fE%3d&risl=&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 19,
+      "name": "Object Oriented Programming",
+      "image":"https://thumbs.dreamstime.com/b/oop-object-oriented-programming-acronym-technology-concept-background-230928700.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Introduction to Industrial Management (Humanities III)",
+      "image": "https://img.freepik.com/premium-vector/2d-vector-illustration-colorful-machine-worker-industry-its-development-technology-factor_918459-15700.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Constitution of India",
+      "image": "https://cdn.leverageedu.com/blog/wp-content/uploads/2020/07/08210018/the-making-of-indian-constitution-1600x999.png"
+    }
+  ]
+},
+{
+  "id": 6,
+  "name": "Semester 6",
+  "subjects": [
+    {
+      "id": 22,
+      "name": "Artificial Intelligence",
+      "image": "https://static.vecteezy.com/system/resources/previews/000/549/435/original/ai-artificial-intelligence-technology-robot-cartoon-001-vector.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Big Data Technology",
+      "image": "https://media.istockphoto.com/vectors/concepts-for-creative-process-big-data-filter-data-tunnel-analysis-vector-id464806966?k=6&m=464806966&s=612x612&w=0&h=yVt-f-mmhMpTNtIq_Vitf03Ah2-Fyv-xTXvijRwEupw="
+    },
+    {
+      "id": 24,
+      "name": "Distributed Systems",
+      "image": "https://static.vecteezy.com/system/resources/previews/005/579/803/non_2x/distributed-system-wireless-connection-vector.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Data Warehousing and Data Mining",
+      "image": "https://static.vecteezy.com/system/resources/thumbnails/004/655/713/small_2x/a-perfect-design-illustration-of-data-mining-vector.jpg"
+    },
+    {
+      "id": 26,
+      "name": "Human Resource Development and Organizational Behaviour",
+      "image": "https://i.pinimg.com/originals/3e/7c/31/3e7c312246b218d8133abe80c1c87a7c.png"
+    },
+    {
+      "id": 27,
+      "name": "Research Methodology",
+      "image": "https://th.bing.com/th/id/OIP.hVD_Np3vsQpDi9-kXEl30gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&cb=idpwebpc2"
+    }
+  ]
+},
+{
+  "id": 7,
+  "name": "Semester 7",
+  "subjects": [
+    {
+      "id": 28,
+      "name": "Data Visualization",
+      "image": "https://th.bing.com/th/id/OIP.WZK_H_9bwvbvScGpNfyO7wHaHa?r=0&w=1920&h=1920&rs=1&pid=ImgDetMain&cb=idpwebpc2"
+    },
+    {
+      "id": 29,
+      "name": "Big Data Technology",
+      "image": "https://c8.alamy.com/comp/KT9YG3/big-data-technology-KT9YG3.jpg"
+    },
+    {
+      "id": 30,
+      "name": "Neural Networks and Deep Learning",
+      "image": "https://cdn.iconscout.com/icon/premium/png-256-thumb/neural-network-2442375-2027924.png"
+    },
+    {
+      "id": 31,
+      "name": "Soft Skill & Interpersonal Communication",
+      "image": "https://th.bing.com/th/id/OIP.5oUzhCzImSgM2Z0ENzF75wHaHK?r=0&pid=ImgDet&w=474&h=458&rs=1&cb=idpwebpc2"
+    },
+    {
+      "id": 32,
+      "name": "Project Management and Entrepreneurship",
+      "image": "https://th.bing.com/th/id/OIP.Yoo5cv6DxXgJ4uG5MzOkpAHaG7?r=0&w=850&h=796&rs=1&pid=ImgDetMain&cb=idpwebpc2"
+    }
+  ]
+},
+{
+  "id": 8,
+  "name": "Semester 8",
+  "subjects": [
+    {
+      "id": 33,
+      "name": "Internet of Things",
+      "image": "https://www.clipartmax.com/png/middle/338-3387958_iot-internet-of-things.png"
+    },
+    {
+      "id": 34,
+      "name": "Big Data Analytics",
+      "image": "https://thumbs.dreamstime.com/b/big-data-term-collection-sets-infografic-keywords-icons-35357460.jpg"
+    },
+    {
+      "id": 35,
+      "name": "Data Science Ethics",
+      "image": "https://ccartoday.com/wp-content/uploads/2018/04/Ethics-Image.jpg"
+    }
+  ]
+}
+
+
+
+
+
   ]
 }

@@ -19,6 +19,8 @@ import subjectsContent from '@/Data/subjectsContent.json';
 import { useLocalSearchParams } from 'expo-router';
 import { Entypo } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import * as url from '@/helpers/UrlHelper';
+import { getData } from '@/utils/Gateway';
 
 interface Chapter {
   id: number;
@@ -32,12 +34,15 @@ const ChapterDropdown = ({
   selectChapter,
   setSelectChapter,
   chapters,
+
+  setChapterId,
 }: {
   toggleDropdown: boolean;
   setToggleDropdown: (value: boolean) => void;
   selectChapter: string;
   setSelectChapter: (value: string) => void;
   chapters: Chapter[];
+  setChapterId: (value: string) => void;
 }) => {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === 'dark';
@@ -51,9 +56,10 @@ const ChapterDropdown = ({
     }).start();
   }, [toggleDropdown]);
 
-  const handleSelect = (title: string) => {
+  const handleSelect = (title: string, id: string) => {
     setSelectChapter(title);
     setToggleDropdown(false);
+    setChapterId(id);
   };
 
   return (
@@ -75,6 +81,8 @@ const ChapterDropdown = ({
         onPress={() => setToggleDropdown(!toggleDropdown)}
       >
         <ThemedText
+          numberOfLines={2}
+          style={{ width: '90%' }}
           type="default"
           lightColor={Colors.appColors.lightText}
           darkColor={Colors.appColors.darkText}
@@ -122,8 +130,11 @@ const ChapterDropdown = ({
                       : Colors.appColors.lightBackground,
                   },
                 ]}
-                onPress={() =>
-                  handleSelect(`Chapter ${item.id}: ${item.title}`)
+                
+                onPress={() =>{
+                   handleSelect(`Chapter ${item.id}: ${item.title}`, item.id);
+                }
+                 
                 }
               >
                 <ThemedText
@@ -162,20 +173,63 @@ const SubjectDetails = () => {
       : 'Select Chapter'
   );
 
+  const [chapters, setChapters] = useState([]);
+  const [chapterContent, setChapterContent] = useState({});
+  const [chapterId, setChapterId] = useState('');
+  const getAllChapters = async () => {
+    try {
+      let requestUrl =
+        url.API_BASE_URL + url.API_GET_CHAPTERS + `/${subjectId}`;
+      const response = await getData(requestUrl);
+      if (Array.isArray(response) && response.length > 0) {
+        console.log(response[0]?._id);
+        setChapters(response);
+        if(response[0]?.id) setChapterId(response[0]?.id);
+
+      } else {
+        console.log('No subjects found or bad response');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getChapterContents = async () => {
+    try {
+      let requestUrl =
+        url.API_BASE_URL + url.API_GET_CHAPTER_DETAILS + `/${chapterId}`;
+      const response = await getData(requestUrl);
+
+      if (Object.keys(response)?.length) {
+        console.log(response);
+        setChapterContent(response);
+      } else {
+        console.log('No subjects found or bad response');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   if (!subject) {
     return (
-      <ThemedView
-        style={styles.container}
-        lightColor={Colors.appColors.lightBackground}
-        darkColor={Colors.appColors.darkBackground}
-      >
-        <ThemedText
-          lightColor={Colors.appColors.lightText}
-          darkColor={Colors.appColors.darkText}
+      <SafeAreaView style={{ flex: 1 }}>
+        <ThemedView
+          style={[
+            styles.container,
+            { justifyContent: 'center', alignItems: 'center' },
+          ]}
+          lightColor={Colors.appColors.lightBackground}
+          darkColor={Colors.appColors.darkBackground}
         >
-          Subject not found
-        </ThemedText>
-      </ThemedView>
+          <ThemedText
+            lightColor={Colors.appColors.lightText}
+            darkColor={Colors.appColors.darkText}
+          >
+            Contents not found
+          </ThemedText>
+        </ThemedView>
+      </SafeAreaView>
     );
   }
 
@@ -346,7 +400,7 @@ const SubjectDetails = () => {
   };
 
   const markdownRenderer = (content: string) => {
-    console.log('Processing markdown:', content.substring(0, 100) + '...'); // Debug log
+    // console.log('Processing markdown:', content.substring(0, 100) + '...'); // Debug log
     let processedContent = content;
     // Replace **Math Example**: with fenced math block
     processedContent = processedContent.replace(
@@ -416,48 +470,52 @@ const SubjectDetails = () => {
     }
   };
 
-  const processContent = (content: string) => {
+  // const processContent = (content: string) => {
+  const processContent = (content: Object) => {
     const parts: JSX.Element[] = [];
-    let remainingContent = content;
+    let remainingContent = content['content']??'';
     let match;
 
-    const jsonRegex = /\[json_example\]([\s\S]*?)\[\/json_example\]/gs;
+    // const jsonRegex = /\[json_example\]([\s\S]*?)\[\/json_example\]/gs;
 
-    while ((match = jsonRegex.exec(remainingContent)) !== null) {
-      const jsonContent = match[1].trim();
-      const beforeJson = remainingContent.substring(0, match.index).trim();
-      const afterJson = remainingContent
-        .substring(match.index + match[0].length)
-        .trim();
+    // const beforeJson = content['content'];
+    
+    // while ((match = jsonRegex.exec(remainingContent)) !== null) {
+    //   // const jsonContent = match[1].trim();
+    //   const jsonContent = match[1]['content']??'';
+    //   const beforeJson = remainingContent.substring(0, match.index).trim();
+    //   const afterJson = remainingContent
+    //     .substring(match.index + match[0].length)
+    //     .trim();
 
-      if (beforeJson) {
-        parts.push(
-          <Markdown
-            key={`markdown-${parts.length}`}
-            style={markdownStyles}
-            rules={rules}
-            markdownitOptions={{ typographer: true }}
-          >
-            {markdownRenderer(beforeJson)}
-          </Markdown>
-        );
-      }
+    //   if (beforeJson) {
+    //     parts.push(
+    //       <Markdown
+    //         key={`markdown-${content?._id}`}
+    //         style={markdownStyles}
+    //         rules={rules}
+    //         markdownitOptions={{ typographer: true }}
+    //       >
+    //         {markdownRenderer(beforeJson)}
+    //       </Markdown>
+    //     );
+    //   }
 
-      if (jsonContent) {
-        parts.push(
-          <View key={`json-${parts.length}`}>
-            {renderJsonContent(jsonContent)}
-          </View>
-        );
-      }
+    //   if (jsonContent) {
+    //     parts.push(
+    //       <View key={`json-${parts.length}`}>
+    //         {renderJsonContent(jsonContent)}
+    //       </View>
+    //     );
+    //   }
 
-      remainingContent = afterJson;
-    }
+    //   remainingContent = afterJson;
+    // }
 
     if (remainingContent) {
       parts.push(
         <Markdown
-          key={`markdown-${parts.length}`}
+          key={`markdown-${remainingContent.length}`}
           style={markdownStyles}
           rules={rules}
           markdownitOptions={{ typographer: true }}
@@ -473,6 +531,19 @@ const SubjectDetails = () => {
       <ThemedText>No content to display</ThemedText>
     );
   };
+
+  useEffect(() => {
+    if (subjectId) {
+      getAllChapters();
+    }
+  }, [subjectId]);
+
+  useEffect(() => {
+     console.log("chapter id 541",chapterId)
+    if (chapterId) {
+      getChapterContents();
+    }
+  }, [chapterId]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -493,10 +564,13 @@ const SubjectDetails = () => {
           setToggleDropdown={setToggleDropdown}
           selectChapter={selectChapter}
           setSelectChapter={setSelectChapter}
-          chapters={subject.chapters}
+          chapters={chapters}
+          setChapterId={setChapterId}
         />
         <ScrollView style={styles.contentContainer}>
-          {currentChapter && processContent(currentChapter.content)}
+      
+          {/* {currentChapter && processContent(currentChapter.content,)} */}
+          {currentChapter && processContent(chapterContent)}
         </ScrollView>
         {toggleDropdown && (
           <Pressable

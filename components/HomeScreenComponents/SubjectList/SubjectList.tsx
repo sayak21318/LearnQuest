@@ -1,4 +1,5 @@
-import React from 'react';
+// @ts-nocheck
+import React, { useEffect, useState } from 'react';
 import {
   FlatList,
   Image,
@@ -9,8 +10,10 @@ import {
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedText } from '@/components/ThemedText';
 import { Colors } from '@/constants/Colors';
-import subjectsData from '@/Data/subjects.json';
+// import subjectsData from '@/Data/subjects.json';
 import { router } from 'expo-router';
+import * as url from '@/helpers/UrlHelper';
+import { getData } from '@/utils/Gateway';
 
 type SubjectListProps = {
   selectedSemester: string;
@@ -20,11 +23,39 @@ const SubjectList: React.FC<SubjectListProps> = ({ selectedSemester }) => {
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === 'dark';
 
-  // Find subjects for the selected semester
-  const semester = subjectsData.semesters.find(
-    sem => sem.name === selectedSemester
-  );
-  const subjects = semester ? semester.subjects : [];
+  const [subjects, setSubjects] = useState([]);
+
+  const getAllSubjects = async () => {
+    try {
+      let requestUrl =
+        url.API_BASE_URL + url.API_GET_ALL_SUBJECTS + `/${selectedSemester}`;
+
+      // console.log('requestUrl', requestUrl);
+
+      const response = await getData(requestUrl);
+
+      if (Array.isArray(response) && response.length > 0) {
+        // console.log('subject response', response);
+        setSubjects(response);
+      } else {
+        console.log('No subjects found or bad response');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedSemester !== '0') {
+      getAllSubjects();
+    }
+  }, [selectedSemester]);
+
+  // // Find subjects for the selected semester
+  // const semester = subjectsData.semesters.find(
+  //   sem => sem.name === selectedSemester
+  // );
+  // const subjects = semester ? semester.subjects : [];
 
   const renderSubject = ({
     item,
@@ -94,7 +125,8 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   subjectContainer: {
-    flex: 1,
+    // flex: 1,
+    width: '48%',
     margin: 8,
     borderRadius: 12,
     alignItems: 'center',

@@ -14,7 +14,7 @@ const HomeScreen = () => {
   const { setShowSnackbar, setSnackBarColor, setSnackbarTxt } =
     useContext(GlobalProvider);
   const [toggleDropdown, setToggleDropdown] = useState(false);
-  const [selectSemester, setSelectSemester] = useState('Select Semester');
+  const [selectSemester, setSelectSemester] = useState('0');
 
   // Set up the back button handling logic
   useFocusEffect(

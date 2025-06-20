@@ -7,12 +7,13 @@ import {
   Animated,
   useColorScheme,
 } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Colors } from '@/constants/Colors';
 import { Text } from 'react-native-paper';
 import { Entypo } from '@expo/vector-icons';
 import { ThemedView } from '@/components/ThemedView';
-import semesters from '@/Data/semesters.json';
+import { getData } from '@/utils/Gateway';
+import * as url from '@/helpers/UrlHelper';
 
 const SemesterDropdown = ({
   toggleDropdown,
@@ -23,7 +24,10 @@ const SemesterDropdown = ({
   const colorScheme = useColorScheme();
   const isDarkMode = colorScheme === 'dark';
   const slideAnim = React.useRef(new Animated.Value(-100)).current;
+  // const { semesters, setSemesters } = useContext(GlobalProvider);
 
+  const [semesterName, setSemesterName] = useState('');
+  const [semesters, setSemesters] = useState('');
   useEffect(() => {
     Animated.timing(slideAnim, {
       toValue: toggleDropdown ? 0 : -100,
@@ -82,10 +86,39 @@ const SemesterDropdown = ({
     },
   });
 
-  const handleSelect = name => {
-    setSelectSemester(name);
-    setToggleDropdown(false);
+  // const [semesters, setSemesters] = useState('');
+
+  const getAllSemesters = async () => {
+    try {
+      let requestUrl = url.API_BASE_URL + url.API_GET_ALL_SEMESTERS;
+
+      console.log('requestUrl', requestUrl);
+
+      const response = await getData(requestUrl);
+
+      if (Array.isArray(response) && response.length > 0) {
+        // console.log('semester response', response);
+        setSemesters(response);
+      } else {
+        console.log('No semesters found or bad response');
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setRefreshing(false);
+      setLoading(false);
+    }
   };
+
+  const handleSelect = val => {
+    setSelectSemester(val.id);
+    setToggleDropdown(false);
+    setSemesterName(val.name);
+  };
+
+  useEffect(() => {
+    getAllSemesters();
+  }, []);
 
   return (
     <ThemedView style={{ marginHorizontal: 16, marginTop: 12 }}>
@@ -104,7 +137,7 @@ const SemesterDropdown = ({
               : Colors.appColors.lightText,
           }}
         >
-          {selectSemester}
+          {semesterName ? semesterName : 'Select Semester'}
         </Text>
         <Entypo
           size={24}
@@ -141,7 +174,7 @@ const SemesterDropdown = ({
                       : Colors.appColors.lightBackground,
                   },
                 ]}
-                onPress={() => handleSelect(item.name)}
+                onPress={() => handleSelect(item)}
               >
                 <Text
                   style={[
